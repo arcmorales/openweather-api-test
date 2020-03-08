@@ -1,7 +1,6 @@
 'use strict'
 
 import CONSTANTS from '../constants'
-
 import chai from 'chai'
 import chaiHttp from 'chai-http'
 import moment from 'moment'
@@ -13,7 +12,7 @@ chai.use(chaiHttp)
 
 let sydneyWeather
 
-describe('Getting weather forecast for Sydney', () => {
+describe('A happy holiday maker getting weather forecast for Sydney', () => {
   before('User looks up the weather forecast for Sydney', (done) => {
     const { BASEURL, QUERY, SYDNEY_ID } = CONSTANTS
     chai.request(BASEURL)
@@ -25,13 +24,13 @@ describe('Getting weather forecast for Sydney', () => {
       })
   })
 
-  it('should be able to successfully retrieve the weather forecast for Sydney, Australia', () => {
+  it('it should be able to successfully retrieve the weather forecast for Sydney, Australia', () => {
     expect(sydneyWeather).to.have.status(200)
     expect(sydneyWeather.body.city.name).to.equal('Sydney')
     expect(sydneyWeather.body.city.country).to.equal('AU')
   })
 
-  it('should be able to retrieve forecast of over 10degrees for at least one Thursday', () => {
+  it('it should be able to retrieve forecast of over 10degrees for at least one Thursday', () => {
     const forecast = sydneyWeather.body.list
     let warmThursdays = 0
     forecast.filter((weather) => {
