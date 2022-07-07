@@ -22,7 +22,7 @@
     "mocha": "^7.1.0"
   },
   "dependencies": {
-    "moment": "^2.24.0",
+    "moment": "^2.29.4",
     "standard": "^14.3.1"
   },
   "standard": {
